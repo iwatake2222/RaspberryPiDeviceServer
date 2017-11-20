@@ -94,7 +94,7 @@ This is the project with more functions. Device driver is implemented in C. Pyth
 ## How to use
 ```
 sudo apt-get install libi2c-dev
-cd myClib
+cd myCLib
 make
 cd ../
 python index.py  
@@ -102,7 +102,18 @@ python index.py
 ```
 
 # Memo
-Debug command for web api
+Debug command for web api from Host PC
 ```
 curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"num":"0", "onoff":true}' http://192.168.1.88:8080/setLed
+```
+
+Debug command to check i2c in pi
+```
+i2cdetect -y 1
+i2cget -y 1 0x18 0x0f b
+```
+
+How to execute a.out with local library(.so)
+```
+LD_LIBRARY_PATH=. ./a.out
 ```
